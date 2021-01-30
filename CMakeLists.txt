@@ -35,6 +35,7 @@ option( KTX_FEATURE_DOC "Create KTX documentation" OFF )
 option( KTX_FEATURE_LOADTEST_APPS "Create load tests apps that load and display various KTX textures" OFF )
 option( KTX_FEATURE_STATIC_LIBRARY "Create static libraries (shared otherwise)" ${LIB_TYPE_DEFAULT} )
 option( KTX_FEATURE_TESTS "Create unit tests" ON )
+option( KTX_FEATURE_GL_UPLOAD "" ON )
 
 set(VULKAN_INSTALL_DIR "" CACHE PATH "Path to installation of Vulkan SDK (obtainable from https://vulkan.lunarg.com/sdk/home )")
 
@@ -129,9 +130,6 @@ set(KTX_MAIN_SRC
     lib/filestream.h
     lib/formatsize.h
     lib/gl_format.h
-    lib/gl_funcs.c
-    lib/gl_funcs.h
-    lib/glloader.c
     lib/hashlist.c
     lib/info.c
     lib/ktxint.h
@@ -150,6 +148,14 @@ set(KTX_MAIN_SRC
     lib/vkformat_enum.h
     lib/vkformat_str.c
     )
+
+if(KTX_FEATURE_GL_UPLOAD)
+    list(APPEND KTX_MAIN_SRC
+        lib/gl_funcs.c
+        lib/gl_funcs.h
+        lib/glloader.c
+    )
+endif()
 
 # Main library
 add_library( ktx ${LIB_TYPE}
