@@ -41,6 +41,9 @@ EXPORTS
     ktxTexture1_glTypeSize
     ktxTexture2_GetImageOffset
     ktxTexture2_calcLevelOffset
+    ktxTexture2_GetNumComponents
+    ktxTexture2_NeedsTranscoding
+    ktxTexture2_TranscodeBasis
     ktxTexture2_destruct
     vk2dfd
     vkFormatString
