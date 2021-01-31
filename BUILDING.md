@@ -105,8 +105,9 @@ You need to install the following
 - CMake
 - Xcode
 - [Doxygen](#doxygen) (only if generating documentation)
+  - [GraphViz](https://www.graphviz.org) (dependency of Doxygen dot)
 
-For the load tests applications you need to install the [Vulkan SDK](#vulkan-sdk).
+For the load tests applications you need to install the [Vulkan SDK](#vulkan-sdk) and [SDL 2](https://www.libsdl.org/download-2.0.php).
 
 Other dependencies (like zstd, SDL2 or the assimp library are included in this repository or come with Xcode).
 
