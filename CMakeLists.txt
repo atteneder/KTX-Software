@@ -14,6 +14,8 @@ project(KTX-Software
     DESCRIPTION "Libraries and tools to create and read KTX image texture files."
 )
 
+message( "will it blend" )
+
 include(CTest)
 
 include(GNUInstallDirs)
