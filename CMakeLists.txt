@@ -181,6 +181,13 @@ if(KTX_FEATURE_GL_UPLOAD)
     )
 endif()
 
+set(KTX_BASISU_INCLUDE_DIRS
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/basisu/transcoder>
+    $<INSTALL_INTERFACE:lib/basisu/transcoder>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/basisu/zstd>
+    $<INSTALL_INTERFACE:lib/basisu/zstd>
+)
+
 # Main library
 add_library( ktx ${LIB_TYPE}
     ${KTX_MAIN_SRC}
@@ -243,11 +250,7 @@ macro(commom_lib_settings lib write)
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/basisu/transcoder>
-        $<INSTALL_INTERFACE:lib/basisu/transcoder>
-
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/basisu/zstd>
-        $<INSTALL_INTERFACE:lib/basisu/zstd>
+        ${KTX_BASISU_INCLUDE_DIRS}
 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/other_include>
         $<INSTALL_INTERFACE:other_include>

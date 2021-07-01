@@ -12,8 +12,8 @@ target_include_directories(
     obj_basisu_cbind
 PUBLIC
     inc
+    ${KTX_BASISU_INCLUDE_DIRS}
 PRIVATE
-    $<TARGET_PROPERTY:ktx,INCLUDE_DIRECTORIES>
     ${PROJECT_SOURCE_DIR}/utils
 )
 
